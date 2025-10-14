@@ -1,0 +1,127 @@
+/* ================================
+   ZUPI - Layout Central e Legível
+   ================================ */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Fundo */
+body {
+  background: linear-gradient(135deg, #A8E6CF, #7EBCE6);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Card central */
+.container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 40px 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título */
+.container h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Labels */
+label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+  background-color: #fafafa;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #7EBCE6;
+  box-shadow: 0 0 8px rgba(126, 188, 230, 0.4);
+  outline: none;
+}
+
+/* Botão */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #FFB677, #F9E39A);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #A8E6CF, #7EBCE6);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Links */
+a {
+  color: #7EBCE6;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 12px;
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Rodapé */
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  .container h1 {
+    font-size: 1.6rem;
+  }
+}
