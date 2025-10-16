@@ -1,0 +1,79 @@
+/* ===================================================
+   css/dashboard.css — Estilos do painel (pais)
+   =================================================== */
+
+:root {
+  --bg: #f5f8f9;
+  --surface: #ffffff;
+  --accent: #7EBCE6;
+  --muted: #6b6f73;
+  --card-shadow: 0 10px 30px rgba(7,32,35,0.06);
+}
+
+* { box-sizing:border-box; }
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: #233;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* layout: sidebar + main */
+.sidebar {
+  width: 240px;
+  background: var(--surface);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 26px 16px;
+  box-shadow: 2px 0 12px rgba(7,32,35,0.03);
+}
+
+.sidebar .brand { font-weight:800; color:var(--accent); font-size:1.2rem; margin-bottom:18px; }
+.sidebar nav { display:flex; flex-direction:column; gap:12px; margin-top:12px;}
+.sidebar nav a { color:#133; text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; }
+.sidebar nav a:hover { background: rgba(126,188,230,0.08); }
+
+/* content area */
+.dashboard-main {
+  margin-left: 240px;
+  padding: 28px;
+  min-height: 100vh;
+}
+
+/* header area inside dashboard */
+.dashboard-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+}
+
+.summary { display:flex; gap:12px; align-items:center; }
+.summary .card {
+  background: var(--surface);
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+/* cards grid */
+.cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:18px; margin-top:18px; }
+
+.card { background: var(--surface); padding:18px; border-radius:12px; box-shadow: var(--card-shadow); }
+.card.big { min-height: 140px; }
+
+/* profiles area */
+.profiles { display:flex; gap:14px; flex-wrap:wrap; margin-top:18px; }
+.profile { background:var(--surface); padding:14px; border-radius:12px; width:200px; box-shadow:var(--card-shadow); text-align:center; }
+.profile img { width:72px; height:72px; border-radius:50%; object-fit:cover; margin-bottom:8px; }
+
+/* responsive */
+@media (max-width:900px){
+  .sidebar { position:relative; width:100%; height:auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px; }
+  .dashboard-main { margin-left: 0; padding: 18px; }
+  .profiles { justify-content:center; }
+}

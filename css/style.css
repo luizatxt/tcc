@@ -1,127 +1,122 @@
-/* ================================
-   ZUPI - Layout Central e Legível
-   ================================ */
-
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Fundo */
-body {
+/* === Estilo geral da página de autenticação === */
+.auth-page {
   background: linear-gradient(135deg, #A8E6CF, #7EBCE6);
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #333;
 }
 
-/* Card central */
-.container {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 420px;
+/* Cartão central */
+.auth-card {
+  background: #F1F1F1;
   border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 380px;
   padding: 40px 35px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
+  animation: fadeIn 0.6s ease;
 }
 
 /* Título */
-.container h1 {
-  font-size: 2rem;
+.auth-card h1 {
   color: #333;
-  margin-bottom: 30px;
-}
-
-/* Labels */
-label {
-  display: block;
-  text-align: left;
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 8px;
-  margin-top: 15px;
-}
-
-/* Inputs */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 10px;
-  border: 2px solid #e0e0e0;
-  background-color: #fafafa;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-size: 1.8rem;
   margin-bottom: 10px;
 }
 
-input:focus,
-textarea:focus {
-  border-color: #7EBCE6;
-  box-shadow: 0 0 8px rgba(126, 188, 230, 0.4);
-  outline: none;
+/* Texto secundário */
+.auth-card .muted {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
 }
 
-/* Botão */
-button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #FFB677, #F9E39A);
-  font-size: 1rem;
+/* Formulário */
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-card label {
+  text-align: left;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #333;
+}
+
+.auth-card input {
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card input:focus {
+  border-color: #7EBCE6;
+  box-shadow: 0 0 0 3px rgba(126, 188, 230, 0.3);
+}
+
+/* Botão principal */
+.auth-card button {
+  background: linear-gradient(45deg, #FFB677, #F9E39A);
+  border: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-top: 20px;
   transition: all 0.3s ease;
 }
 
-button:hover {
-  background: linear-gradient(90deg, #A8E6CF, #7EBCE6);
-  color: white;
+.auth-card button:hover {
+  filter: brightness(1.08);
   transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 182, 119, 0.28);
 }
 
 /* Links */
-a {
-  color: #7EBCE6;
-  text-decoration: none;
-  font-weight: 500;
-  margin-top: 12px;
-  display: inline-block;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Rodapé */
-footer {
-  position: fixed;
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #444;
+.small-link {
+  margin-top: 20px;
   font-size: 0.9rem;
 }
 
+.small-link a {
+  color: #7EBCE6;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.small-link a:hover {
+  color: #FFB677;
+}
+
+/* Animação suave ao carregar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsivo */
-@media (max-width: 500px) {
-  .container {
+@media (max-width: 480px) {
+  .auth-card {
     padding: 30px 20px;
   }
-
-  .container h1 {
-    font-size: 1.6rem;
+  .auth-card h1 {
+    font-size: 1.5rem;
   }
 }

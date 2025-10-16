@@ -1,47 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Zupi — Planos</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zupi — Planos</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+
 <header class="topbar">
-<div class="container">
-<a href="index.html" class="logo">Zupi</a>
-<nav>
-<a href="index.html">Início</a>
-<a href="sobre.html">Sobre</a>
-<a href="contato.html">Contato</a>
-<a href="login.html" class="btn">Entrar</a>
-</nav>
-</div>
+  <div class="container header-container">
+    <a href="index.html" class="logo">Zupi</a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="login.html" class="btn">Entrar</a>
+    </nav>
+  </div>
 </header>
 
 
 <main class="container page">
-<h1>Planos</h1>
-<div class="plans">
-<div class="plan">
-<h3>Grátis</h3>
-<p>Acesso limitado a jogos e rotina básica.</p>
-<a class="btn" href="cadastro.html">Criar conta</a>
-</div>
-<div class="plan recommended">
-<h3>Premium</h3>
-<p>Acesso total, relatórios e personalização avançada.</p>
-<a class="btn primary" href="#">Assinar</a>
-</div>
-</div>
+  <h1>Planos</h1>
+
+
+  <!-- Seção de planos destacada -->
+  <section id="planos" class="section">
+    <h2>Nossos Planos</h2>
+    <div class="planos-container">
+      <div class="plano">
+        <h3>Básico</h3>
+        <p>Perfeito para começar a explorar o Zupi.</p>
+        <span class="preco">R$ 29/mês</span>
+      </div>
+      <div class="plano destaque">
+        <h3>Premium</h3>
+        <p>Mais recursos e acompanhamento completo.</p>
+        <span class="preco">R$ 59/mês</span>
+      </div>
+      <div class="plano">
+        <h3>Família</h3>
+        <p>Para todos os membros aprenderem juntos.</p>
+        <span class="preco">R$ 99/mês</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Seção de planos básicos -->
+  <div class="plans">
+    <div class="plan">
+      <h3>Grátis</h3>
+      <p>Acesso limitado a jogos e rotina básica.</p>
+      <button>Criar conta</button>
+    </div>
+
+
+    <div class="plan intermediary">
+      <span class="tag">Recomendado</span>
+      <h3>Premium</h3>
+      <p>Acesso total, relatórios e personalização avançada.</p>
+      <button>Assinar</button>
+    </div>
+  </div>
 </main>
 
 
 <footer class="footer">
-<div class="container">
-<p>© 2025 Zupi</p>
-</div>
+  <div class="container footer-container">
+    <p>© 2025 Zupi</p>
+  </div>
 </footer>
-<script src="js/main.js"></script>
+
+
 </body>
 </html>
