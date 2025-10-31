@@ -4,33 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seleção de Perfil - Zupi</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/selecao-perfil.css">
 </head>
-<body>
-  <header>
-    <h1>Projeto Zupi</h1>
+<body class="auth-page">
+
+  <!-- Fundo animado igual login/cadastro -->
+  <div class="background"></div>
+
+  <!-- Cabeçalho -->
+  <header class="topbar">
+    <div class="container">
+      <a href="index.html" class="logo">Zupi</a>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="planos.html">Planos</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="container">
-      <h2>Escolha um Perfil</h2>
+  <!-- Conteúdo principal -->
+  <main class="auth-main">
+    <div class="auth-card selecao-perfil-card">
+      <h1>Escolha um Perfil</h1>
       <div class="dashboard">
         <div class="card">
+          <div class="avatar">👧</div>
           <h3>Maria</h3>
           <p>Idade: 7 anos</p>
-          <a href="menu-jogos.html"><button>Acessar</button></a>
+          <a href="menu-jogos.html"><button class="btn primary">Acessar</button></a>
         </div>
         <div class="card">
+          <div class="avatar">👦</div>
           <h3>João</h3>
           <p>Idade: 9 anos</p>
-          <a href="menu-jogos.html"><button>Acessar</button></a>
+          <a href="menu-jogos.html"><button class="btn primary">Acessar</button></a>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    © 2025 Projeto Zupi - Todos os direitos reservados
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Projeto Zupi - Todos os direitos reservados</p>
+    </div>
   </footer>
+
 </body>
 </html>

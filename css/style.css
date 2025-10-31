@@ -1,16 +1,14 @@
 /* ===================================================
-   css/style.css — Estilos gerais e animações Zupi
+   css/style.css — Zupi Animado
    Paleta: #7EBCE6, #F9E39A, #A8E6CF, #FFB677, #F1F1F1
    =================================================== */
-
-/* ---------------------- VARIÁVEIS ---------------------- */
 :root {
   --cor-primaria: #7EBCE6;
   --cor-secundaria: #F9E39A;
   --cor-accent: #A8E6CF;
   --cor-destaque: #FFB677;
   --cor-fundo: #F1F1F1;
-
+  
   --font-titulo: 'Poppins', sans-serif;
   --font-corpo: 'Roboto', sans-serif;
   --transition-speed: 0.4s;
@@ -30,7 +28,7 @@ body {
   line-height: 1.6;
 }
 
-/* ---------------------- CABEÇALHO / NAVBAR ---------------------- */
+/* ---------------------- NAVBAR ---------------------- */
 .topbar {
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -58,9 +56,7 @@ body {
   transition: color var(--transition-speed);
 }
 
-.logo:hover {
-  color: var(--cor-destaque);
-}
+.logo:hover { color: var(--cor-destaque); }
 
 nav a {
   margin-left: 20px;
@@ -83,15 +79,9 @@ nav a::after {
   left: 0;
 }
 
-nav a:hover {
-  color: var(--cor-primaria);
-}
+nav a:hover { color: var(--cor-primaria); }
+nav a:hover::after { width: 100%; }
 
-nav a:hover::after {
-  width: 100%;
-}
-
-/* Botão da navbar */
 nav .btn {
   background-color: var(--cor-primaria);
   color: #fff;
@@ -106,15 +96,14 @@ nav .btn:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* ---------------------- HERO / SEÇÃO INICIAL ---------------------- */
+/* ---------------------- HERO ---------------------- */
 .hero {
   background: linear-gradient(135deg, var(--cor-primaria), var(--cor-accent));
   color: #fff;
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px;
   position: relative;
   overflow: hidden;
-  z-index: 1;
 }
 
 .hero-content {
@@ -150,29 +139,60 @@ nav .btn:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* ---------------------- BOLHAS DECORATIVAS ---------------------- */
-.hero-decor .bubble {
+/* ---------------------- FUNDO ANIMADO ---------------------- */
+.hero-decor {
   position: absolute;
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: float 10s infinite ease-in-out;
+  inset: 0;
+  overflow: hidden;
   z-index: 1;
 }
 
-.hero-decor .bubble:nth-child(1) { width: 50px; height: 50px; top: 15%; left: 5%; background-color: #7EBCE6; animation-delay: 0s; }
-.hero-decor .bubble:nth-child(2) { width: 70px; height: 70px; top: 30%; left: 20%; background-color: #F9E39A; animation-delay: 2s; }
-.hero-decor .bubble:nth-child(3) { width: 40px; height: 40px; top: 50%; left: 10%; background-color: #A8E6CF; animation-delay: 1s; }
-.hero-decor .bubble:nth-child(4) { width: 60px; height: 60px; top: 20%; left: 60%; background-color: #FFB677; animation-delay: 3s; }
-.hero-decor .bubble:nth-child(5) { width: 35px; height: 35px; top: 45%; left: 75%; background-color: #7EBCE6; animation-delay: 2.5s; }
-.hero-decor .bubble:nth-child(6) { width: 55px; height: 55px; top: 65%; left: 50%; background-color: #F9E39A; animation-delay: 4s; }
-.hero-decor .bubble:nth-child(7) { width: 45px; height: 45px; top: 70%; left: 30%; background-color: #A8E6CF; animation-delay: 5s; }
-.hero-decor .bubble:nth-child(8) { width: 65px; height: 65px; top: 60%; left: 85%; background-color: #FFB677; animation-delay: 1.5s; }
-.hero-decor .bubble:nth-child(9) { width: 50px; height: 50px; top: 35%; left: 90%; background-color: #7EBCE6; animation-delay: 3.5s; }
-.hero-decor .bubble:nth-child(10) { width: 30px; height: 30px; top: 80%; left: 15%; background-color: #F9E39A; animation-delay: 0.5s; }
+.shape {
+  position: absolute;
+  opacity: 0.8;
+  animation: floatShape 10s infinite ease-in-out;
+}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-  50% { transform: translateY(-40px) rotate(45deg); opacity: 1; }
+.shape.square {
+  width: 60px;
+  height: 60px;
+  background-color: var(--cor-secundaria);
+  top: 10%;
+  left: 5%;
+  border-radius: 8px;
+  animation-delay: 0s;
+}
+
+.shape.circle {
+  width: 80px;
+  height: 80px;
+  background-color: var(--cor-accent);
+  border-radius: 50%;
+  top: 40%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+.shape.puzzle {
+  width: 70px;
+  height: 70px;
+  background-color: var(--cor-destaque);
+  clip-path: path('M20,0 h30 a10,10 0 0,1 10,10 v10 h10 a10,10 0 0,1 10,10 v20 a10,10 0 0,1 -10,10 h-10 v10 a10,10 0 0,1 -10,10 h-30 a10,10 0 0,1 -10,-10 v-10 h-10 a10,10 0 0,1 -10,-10 v-20 a10,10 0 0,1 10,-10 h10 v-10 a10,10 0 0,1 10,-10 z');
+  top: 70%;
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.shape:nth-child(4) { top: 20%; left: 80%; background-color: var(--cor-primaria); animation-delay: 3s; }
+.shape:nth-child(5) { top: 50%; left: 15%; background-color: var(--cor-accent); animation-delay: 4s; }
+.shape:nth-child(6) { top: 65%; left: 60%; background-color: var(--cor-secundaria); animation-delay: 5s; }
+.shape:nth-child(7) { top: 30%; left: 45%; background-color: var(--cor-primaria); animation-delay: 1.5s; }
+.shape:nth-child(8) { top: 80%; left: 75%; background-color: var(--cor-destaque); animation-delay: 2.5s; }
+.shape:nth-child(9) { top: 55%; left: 5%; background-color: var(--cor-accent); animation-delay: 3.8s; }
+
+@keyframes floatShape {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  50% { transform: translateY(-50px) rotate(45deg); opacity: 1; }
 }
 
 /* ---------------------- CARDS ---------------------- */
@@ -205,16 +225,6 @@ nav .btn:hover {
   position: relative;
 }
 
-.features .card h3 {
-  color: var(--cor-primaria);
-  margin-bottom: 15px;
-}
-
-.features .card p {
-  color: #555;
-  font-size: 0.95rem;
-}
-
 .features .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
@@ -222,7 +232,41 @@ nav .btn:hover {
   color: #fff;
 }
 
-/* ---------------------- PLANOS ---------------------- */
+.features .card h3 { margin-bottom: 15px; color: var(--cor-primaria); }
+
+/* ---------------------- RODAPÉ ---------------------- */
+.footer {
+  background: #fff;
+  text-align: center;
+  padding: 20px;
+  color: #333;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  margin-top: 50px;
+}
+
+.footer a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  color: var(--cor-destaque);
+  text-decoration: underline;
+}
+
+/* ---------------------- ANIMAÇÕES ---------------------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* =================== PLANOS =================== */
 .planos-container {
   display: flex;
   flex-wrap: wrap;
@@ -243,10 +287,13 @@ nav .btn:hover {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  display: block;
+  text-decoration: none;
 }
 
-.plano-gratis { background: #fff9e6; color: #5c480a; }
+.plano-gratis { background: #f0f0f0; color: #555; }
 
+/* Brilho animado */
 .plano::after {
   content: "";
   position: absolute;
@@ -261,197 +308,42 @@ nav .btn:hover {
 
 .plano:hover::after { left: 125%; }
 
-.plano h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  font-weight: 800;
-}
-
-.plano p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 10px; }
-
-.plano .preco {
-  display: inline-block;
-  margin-top: 14px;
-  font-size: 1.2rem;
-  font-weight: 900;
-  background: rgba(255,255,255,0.5);
-  padding: 8px 16px;
-  border-radius: 10px;
-  color: #3b2d03;
-}
-
-.plano:hover {
-  background: linear-gradient(135deg, #ffe08a, #ffcf5d);
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 14px 35px rgba(255,189,74,0.45);
-}
-
-/* ---------------------- RODAPÉ ---------------------- */
-.footer {
-  background-color: #fff;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-}
-
-.footer p {
-  margin: 10px 0;
-  color: #555;
-}
-
-.footer a {
-  color: var(--cor-primaria);
-  text-decoration: none;
-  margin: 0 5px;
-  transition: color 0.3s;
-}
-
-.footer a:hover {
-  color: var(--cor-destaque);
-}
-
-/* ---------------------- ANIMAÇÕES ---------------------- */
-@keyframes slideDown {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------------------- RESPONSIVO ---------------------- */
-@media(max-width: 992px) {
-  .features .cards,
-  .planos-container { flex-direction: column; align-items: center; }
-  .plano { width: 80%; }
-}
-
-@media(max-width: 576px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .features h2 { font-size: 2rem; }
-}
-
-
-/* ---------- PLANOS ZUPI ---------- */
-
-/* Container de planos */
-.planos-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px 0;
-}
-
-/* Cartões de plano */
-.plano {
-  background: #fff9e6; /* mesma cor base para todos */
-  border-radius: 18px;
-  padding: 28px 24px;
-  width: 45%; /* 2x2 layout */
-  box-shadow: 0 8px 26px rgba(20, 40, 45, 0.08);
-  text-align: center;
-  color: #5c480a;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Plano Grátis / Demo */
-.plano-gratis {
-  background: #f0f0f0;
-  color: #555;
-}
-
-/* Efeito de brilho suave animado */
-.plano::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  transition: left 0.6s ease;
-}
-
-.plano:hover::after {
-  left: 125%;
-}
-
-/* Título do plano */
-.plano h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-/* Descrição do plano */
-.plano p {
-  font-size: 1rem;
-  opacity: 0.9;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-
-/* Preço destacado */
+/* Títulos, descrição e preço */
+.plano h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; }
+.plano p { font-size: 1rem; opacity: 0.9; margin-bottom: 12px; }
 .plano .preco {
   display: inline-block;
   margin-top: 14px;
   font-size: 1.3rem;
   font-weight: 900;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255,255,255,0.6);
   padding: 10px 18px;
   border-radius: 12px;
   color: #3b2d03;
   transition: all 0.4s ease;
 }
 
-/* Hover: dourado + elevação + escala */
+/* Hover com efeito dourado e escala */
 .plano:hover {
   background: linear-gradient(135deg, #ffe08a, #ffcf5d);
   transform: translateY(-12px) scale(1.05);
   box-shadow: 0 16px 40px rgba(255, 189, 74, 0.45);
 }
 
-/* Preço também brilha no hover */
 .plano:hover .preco {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255,255,255,0.8);
   color: #2a1f00;
   transform: scale(1.08);
 }
 
 /* Responsividade */
-@media (max-width: 992px) {
-  .plano {
-    width: 48%;
-  }
+@media(max-width: 992px) { .plano { width: 48%; } }
+@media(max-width: 768px) { 
+  .planos-container { flex-direction: column; align-items: center; gap: 20px; } 
+  .plano { width: 90%; } 
 }
 
-@media (max-width: 768px) {
-  .planos-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .plano {
-    width: 90%;
-  }
-}
-
-/* Título da seção */
+/* =================== SEÇÃO =================== */
 .section-title {
   text-align: center;
   font-size: 2.5rem;
@@ -459,7 +351,6 @@ nav .btn:hover {
   color: #7ebce6;
   position: relative;
 }
-
 .section-title::after {
   content: "";
   display: block;
@@ -469,8 +360,6 @@ nav .btn:hover {
   margin: 12px auto 0;
   border-radius: 2px;
 }
-
-/* Subtítulo da seção */
 .section-subtitle {
   text-align: center;
   color: #555;
@@ -478,78 +367,18 @@ nav .btn:hover {
   margin-bottom: 40px;
 }
 
-/* Container geral */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+/* =================== NAVBAR =================== */
+.topbar { background: #fff; padding: 15px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+.topbar .logo { font-size: 1.8rem; font-weight: 800; color: #7ebce6; text-decoration: none; }
+.nav-menu { list-style: none; display: flex; gap: 20px; }
+.nav-menu li a { text-decoration: none; color: #555; font-weight: 600; transition: all 0.3s ease; }
+.nav-menu li a:hover { color: #ffb677; transform: scale(1.1); }
+.btn-login { padding: 8px 18px; border-radius: 10px; background: #7ebce6; color: #fff; font-weight: 700; transition: all 0.3s ease; }
+.btn-login:hover { background: #ffb677; transform: translateY(-2px) scale(1.05); }
 
-/* Navbar */
-.topbar {
-  background: #fff;
-  padding: 15px 0;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.topbar .logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #7ebce6;
-  text-decoration: none;
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-menu li a {
-  text-decoration: none;
-  color: #555;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.nav-menu li a:hover {
-  color: #ffb677;
-  transform: scale(1.1);
-}
-
-/* Botão de login */
-.btn-login {
-  padding: 8px 18px;
-  border-radius: 10px;
-  background: #7ebce6;
-  color: #fff;
-  font-weight: 700;
-  transition: all 0.3s ease;
-}
-
-.btn-login:hover {
-  background: #ffb677;
-  transform: translateY(-2px) scale(1.05);
-}
-
-/* Rodapé */
-.footer {
-  padding: 20px 0;
-  text-align: center;
-  background: #f1f1f1;
-  color: #555;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-
-.footer p:hover {
-  color: #7ebce6;
-}
-
-
+/* =================== RODAPÉ =================== */
+.footer { padding: 20px 0; text-align: center; background: #f1f1f1; color: #555; font-size: 0.95rem; transition: all 0.3s ease; }
+.footer p:hover { color: #7ebce6; }
 
 
 
@@ -668,7 +497,6 @@ nav .btn:hover {
   0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
   50% { transform: translateY(-40px) rotate(45deg); opacity: 0.8; }
 }
-
 
 
 
@@ -999,4 +827,46 @@ nav .btn:hover {
   .timeline-item, .timeline::before { left: 0 !important; width: 100%;}
   .timeline::before { left: 20px; }
   .timeline-item { margin-left: 0; }
+}
+
+
+
+/* ---------------------- FUNDO DECORATIVO GLOBAL ---------------------- */
+.background-decor {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-decor span {
+  position: absolute;
+  opacity: 0.15;
+  animation: float 12s infinite alternate ease-in-out;
+  filter: blur(1px);
+}
+
+.circle { border-radius: 50%; }
+.c1 { width: 180px; height: 180px; top: 10%; left: 5%; background: var(--cor-accent); }
+.c2 { width: 240px; height: 240px; bottom: 8%; right: 10%; background: var(--cor-destaque); }
+.c3 { width: 120px; height: 120px; top: 50%; left: 60%; background: var(--cor-primaria); }
+
+.square { border-radius: 12px; }
+.s1 { width: 100px; height: 100px; top: 20%; right: 25%; transform: rotate(25deg); background: var(--cor-secundaria); }
+.s2 { width: 80px; height: 80px; bottom: 20%; left: 10%; transform: rotate(15deg); background: var(--cor-primaria); }
+.s3 { width: 120px; height: 120px; top: 60%; left: 50%; transform: rotate(35deg); background: var(--cor-destaque); }
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid var(--cor-accent);
+}
+.t1 { top: 30%; left: 70%; transform: rotate(10deg); }
+.t2 { bottom: 25%; right: 20%; transform: rotate(-20deg); }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+  100% { transform: translateY(-20px) rotate(20deg); opacity: 0.25; }
 }
