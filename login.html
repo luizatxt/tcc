@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entrar - Zupi</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entrar — Zupi</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <div class="container">
-    <h1>Entrar</h1>
-    <form onsubmit="fazerLogin(event)">
-      <label for="email">E-mail</label>
-      <input type="email" id="email" placeholder="Digite seu e-mail" required>
+<body class="auth-page">
 
-      <label for="senha">Senha</label>
-      <input type="password" id="senha" placeholder="Digite sua senha" required>
+  <!-- Cabeçalho -->
+  <header class="topbar">
+    <div class="container">
+      <a href="index.html" class="logo">Zupi</a>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="planos.html">Planos</a>
+        <a href="contato.html">Contato</a>
+        <a href="login.html" class="btn active">Entrar</a>
+      </nav>
+    </div>
+  </header>
 
-      <button type="submit">Entrar</button>
-    </form>
+  <!-- Conteúdo principal -->
+  <main class="auth-main">
+    <div class="auth-card">
+      <h1>Entrar</h1>
 
-    <a href="cadastro.html">Criar conta</a>
-  </div>
+      <form class="login-form" action="perfil-criancas.html" method="get">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail" required>
 
-  <script src="js/auth.js"></script>
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+        <button type="submit" class="btn primary">Entrar</button>
+      </form>
+
+      <p class="register-link">
+        Ainda não tem conta? <a href="cadastrar.html">Crie uma agora</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Zupi</p>
+    </div>
+  </footer>
+
 </body>
 </html>

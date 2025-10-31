@@ -1,66 +1,80 @@
-// auth.js — autenticação simples usando localStorage
+// auth.js 
 
 document.addEventListener('DOMContentLoaded', () => {
   const signupForm = document.getElementById('signupForm');
-  const loginForm = document.getElementById('loginForm');
+  const loginForm = document.querySelector('.login-form');
 
-  // Cadastro
+  // Cadastro: só redireciona se todos os campos estiverem preenchidos
   if (signupForm) {
     signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const nome = signupForm.nome.value.trim();
-      const email = signupForm.email.value.trim().toLowerCase();
-      const senha = signupForm.senha.value;
+      const nome = signupForm.querySelector('#nome')?.value.trim() || '';
+      const email = signupForm.querySelector('#email')?.value.trim() || '';
+      const senha = signupForm.querySelector('#senha')?.value || '';
 
       if (!nome || !email || !senha) {
-        alert('Preencha todos os campos.');
+        // Se algum campo estiver vazio, não faz nada (mantém na página)
         return;
       }
 
-      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-      if (usuarios.find(u => u.email === email)) {
-        alert('E-mail já cadastrado. Faça login ou use outro e-mail.');
-        return;
-      }
-
-      usuarios.push({ nome, email, senha });
-      localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-      alert('Conta criada com sucesso!');
-      window.location.href = 'login.html';
+      // Tudo preenchido -> redireciona para perfis (sem salvar nada)
+      window.location.href = 'perfis.html';
     });
   }
 
-  // Login
+  // Login: só redireciona se todos os campos estiverem preenchidos
   if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = loginForm.email.value.trim().toLowerCase();
-      const senha = loginForm.senha.value;
+      const email = loginForm.querySelector('#email')?.value.trim() || '';
+      const senha = loginForm.querySelector('#senha')?.value || '';
 
-      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-      const user = usuarios.find(u => u.email === email && u.senha === senha);
-
-      if (user) {
-        localStorage.setItem('usuarioLogado', JSON.stringify(user));
-        // redireciona para painel dos pais
-        window.location.href = 'dashboard-pais.html';
-      } else {
-        alert('E-mail ou senha incorretos.');
+      if (!email || !senha) {
+        return;
       }
+
+      // Campos preenchidos -> redireciona para perfis
+      window.location.href = 'perfis.html';
     });
   }
 });
+// auth.js 
 
-// Função utilitária para proteger páginas (adicionar onload="verificarLogin()" no body)
-function verificarLogin() {
-  const user = JSON.parse(localStorage.getItem('usuarioLogado'));
-  if (!user) {
-    window.location.href = 'login.html';
+document.addEventListener('DOMContentLoaded', () => {
+  const signupForm = document.getElementById('signupForm');
+  const loginForm = document.querySelector('.login-form');
+
+  // Cadastro: só redireciona se todos os campos estiverem preenchidos
+  if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = signupForm.querySelector('#nome')?.value.trim() || '';
+      const email = signupForm.querySelector('#email')?.value.trim() || '';
+      const senha = signupForm.querySelector('#senha')?.value || '';
+
+      if (!nome || !email || !senha) {
+        // Se algum campo estiver vazio, não faz nada (mantém na página)
+        return;
+      }
+
+      // Tudo preenchido -> redireciona para perfis (sem salvar nada)
+      window.location.href = 'perfis.html';
+    });
   }
-}
-// logout simples
-function logout() {
-  localStorage.removeItem('usuarioLogado');
-  window.location.href = 'index.html';
-}
+
+  // Login: só redireciona se todos os campos estiverem preenchidos
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = loginForm.querySelector('#email')?.value.trim() || '';
+      const senha = loginForm.querySelector('#senha')?.value || '';
+
+      if (!email || !senha) {
+        return;
+      }
+
+      // Campos preenchidos -> redireciona para perfis
+      window.location.href = 'perfis.html';
+    });
+  }
+});

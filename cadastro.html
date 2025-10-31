@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastrar - Zupi</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastrar — Zupi</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <div class="container">
-    <h1>Crie sua conta</h1>
-    <form onsubmit="cadastrarUsuario(event)">
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" placeholder="Seu nome completo" required>
+<body class="auth-page">
 
-      <label for="email">E-mail</label>
-      <input type="email" id="email" placeholder="Digite seu e-mail" required>
-
-      <label for="senha">Senha</label>
-      <input type="password" id="senha" placeholder="Crie uma senha" required>
-
-      <button type="submit">Cadastrar</button>
-    </form>
-
-    <a href="login.html">Já tenho conta</a>
+  <!-- Bolhas decorativas no fundo -->
+  <div class="auth-bubbles">
+    <span class="bubble" style="background-color:#7EBCE6; top:10%; left:15%; width:60px; height:60px;"></span>
+    <span class="bubble" style="background-color:#F9E39A; top:40%; left:70%; width:50px; height:50px;"></span>
+    <span class="bubble" style="background-color:#A8E6CF; top:70%; left:25%; width:45px; height:45px;"></span>
+    <span class="bubble" style="background-color:#FFB677; top:20%; left:80%; width:55px; height:55px;"></span>
+    <span class="bubble" style="background-color:#7EBCE6; top:60%; left:50%; width:35px; height:35px;"></span>
   </div>
 
-  <script src="js/auth.js"></script>
+  <!-- Cabeçalho -->
+<header class="topbar">
+  <div class="container flex-between">
+    <a href="index.html" class="logo">Zupi</a>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="planos.html">Planos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="login.html" class="btn-login">Entrar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+
+  <!-- Conteúdo principal -->
+  <main class="site-content">
+    <div class="auth-card">
+      <h1>Crie sua conta</h1>
+      <form id="signupForm" action="perfil-criancas.html" method="get">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+
+        <button type="submit">Cadastrar</button>
+      </form>
+      <p class="small-link">
+        Já tem conta? <a href="login.html">Entre aqui</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+<footer class="site-footer">
+  <p>© 2025 Zupi</p>
+</footer>
+
 </body>
 </html>

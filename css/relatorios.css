@@ -1,0 +1,181 @@
+/* ===================================================
+   css/relatorios.css — Estilos página Relatórios
+   Paleta: #7EBCE6, #F9E39A, #A8E6CF, #FFB677, #F1F1F1
+   =================================================== */
+
+:root {
+  --primary: #7EBCE6;
+  --secondary: #F9E39A;
+  --accent: #A8E6CF;
+  --highlight: #FFB677;
+  --bg: #F1F1F1;
+  --surface: #fff;
+  --text: #333;
+  --card-shadow: 0 10px 30px rgba(7,32,35,0.06);
+}
+
+/* reset */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ===================== HEADER ===================== */
+header {
+  background: var(--primary);
+  padding: 18px 30px;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  animation: pulse 2s infinite;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--highlight);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* ===================== MAIN ===================== */
+.reports-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.reports-container h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.reports-container h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--highlight);
+  margin-top: 6px;
+  border-radius: 2px;
+  animation: slideIn 1s ease forwards;
+}
+
+/* ===================== GRID DE CARDS ===================== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 20px;
+}
+
+.report-card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px 18px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.report-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.2);
+}
+
+.report-card h3 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.report-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* animação de background suave */
+.report-card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: linear-gradient(120deg, var(--secondary), var(--accent), var(--highlight));
+  opacity:0.08;
+  border-radius:16px;
+  transition: opacity 0.5s;
+}
+
+.report-card:hover::before {
+  opacity:0.2;
+  animation: shine 1.5s infinite;
+}
+
+/* ===================== RODAPÉ ===================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--primary);
+  color: #fff;
+  margin-top: 40px;
+  font-weight: 600;
+}
+
+/* ===================== ANIMAÇÕES ===================== */
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes slideIn {
+  0% { width:0; opacity:0; }
+  100% { width:60px; opacity:1; }
+}
+
+@keyframes shine {
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+
+/* ===================== RESPONSIVIDADE ===================== */
+@media(max-width:768px){
+  .cards-grid { grid-template-columns: 1fr; }
+  nav ul { gap:12px; }
+}

@@ -4,33 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Relatórios - Zupi</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/relatorios.css">
 </head>
 <body>
+  <!-- ===================== HEADER ===================== -->
   <header>
-    <h1>Projeto Zupi</h1>
-    <nav>
-      <ul>
-        <li><a href="dashboard-pais.html">Dashboard</a></li>
-        <li><a href="relatorios.html" class="active">Relatórios</a></li>
-        <li><a href="configuracoes.html">Configurações</a></li>
-      </ul>
-    </nav>
+    <div class="header-container">
+      <h1 class="brand">Zupi</h1>
+      <nav>
+        <ul>
+          <li><a href="dashboard-pais.html">Dashboard</a></li>
+          <li><a href="relatorios.html" class="active">Relatórios</a></li>
+          <li><a href="configuracoes.html">Configurações</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
+  <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
   <main>
-    <section class="container">
+    <section class="reports-container">
       <h2>Relatórios de Progresso</h2>
-      <div class="dashboard">
-        <div class="card">
+      <div class="cards-grid">
+        <div class="report-card">
           <h3>Matemática</h3>
           <p>Último desempenho: <strong>85%</strong></p>
         </div>
-        <div class="card">
+        <div class="report-card">
           <h3>Leitura</h3>
           <p>Último desempenho: <strong>92%</strong></p>
         </div>
-        <div class="card">
+        <div class="report-card">
           <h3>Jogos Educativos</h3>
           <p>Tempo jogado: <strong>3h 20min</strong></p>
         </div>
@@ -38,6 +42,7 @@
     </section>
   </main>
 
+  <!-- ===================== RODAPÉ ===================== -->
   <footer>
     © 2025 Projeto Zupi - Todos os direitos reservados
   </footer>

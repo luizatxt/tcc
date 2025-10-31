@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8" />
@@ -7,36 +7,43 @@
 <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
+
+<!-- ===================== SIDEBAR ===================== -->
 <div class="sidebar">
-<div class="brand">Zupi</div>
-<nav>
-<a href="dashboard-pais.html">Dashboard</a>
-<a href="relatorios.html">Relatórios</a>
-<a href="configuracoes.html">Configurações</a>
-<a href="index.html">Sair</a>
-</nav>
+  <div class="brand">Zupi</div>
+  <nav>
+    <a href="dashboard-pais.html">Dashboard</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="configuracoes.html">Configurações</a>
+    <a href="index.html">Sair</a>
+  </nav>
 </div>
+
+<!-- ===================== ÁREA PRINCIPAL ===================== -->
 <main class="dashboard-main">
-<header><h1>Perfis das crianças</h1></header>
+  <header>
+    <h1>Perfis das crianças</h1>
+  </header>
 
+  <!-- ===================== GRID DE PERFIS ===================== -->
+  <section class="profiles">
+    <!-- CARTÃO DE PERFIL -->
+    <div class="profile">
+      <img src="imagens/avatars/avat1.png" alt="Avatar">
+      <h3>Lucas — 5 anos</h3>
+      <p>Condição: TDAH</p>
+      <div class="actions">
+        <a href="selecao-perfil.html" class="btn">Entrar</a>
+        <a href="#" class="btn ghost">Editar</a>
+      </div>
+    </div>
 
-<section class="profiles">
-<div class="profile">
-<img src="imagens/avatars/avat1.png" alt="Avatar">
-<h3>Lucas — 5 anos</h3>
-<p>Condição: TDAH</p>
-<div class="actions">
-<a href="selecao-perfil.html" class="btn">Entrar</a>
-<a href="#" class="btn ghost">Editar</a>
-</div>
-</div>
-
-
-<div class="profile add">
-<a href="#" class="btn">+ Adicionar perfil</a>
-</div>
-</section>
+    <!-- CARTÃO ADICIONAR PERFIL -->
+    <div class="profile add">
+      <a href="#" class="btn add-btn">+ Adicionar perfil</a>
+    </div>
+  </section>
 </main>
-<script src="js/main.js"></script>
+
 </body>
 </html>
